@@ -2,6 +2,20 @@
 
 # CMOS Design Project: 7T MCPL SRAM Cell
 
+## Indian Institute of Information Technology, Nagpur  
+**ECL 312: CMOS Design**  
+**A Project Report on: 7T MCPL SRAM Cell**
+
+**Submitted By:**  
+Jjateen Gundesha (BT22ECI002)  
+
+**Under the Guidance of:**  
+Prof. Paritosh Peshwe  
+
+**Department of Electronics and Communication**  
+
+---
+
 ## Project Overview
 
 This repository contains the design and simulation of a **7T MCPL (Multi-Clock Power Logic) SRAM cell**, using **adiabatic logic** to optimize power consumption. The project compares the performance of a conventional **6T SRAM** and the novel **7T MCPL SRAM** design under **180nm CMOS technology** using simulation tools such as **WinSpice** and **Microwind**.
@@ -158,9 +172,9 @@ The **Static Noise Margin (SNM)** analysis confirms that the **7T MCPL SRAM** de
 
 ### **Why is the 7T MCPL SRAM more stable than the 6T SRAM?**
 
-1. **Additional Transistor (7T
 
- Design):**
+
+1. **Additional Transistor (7T Design):**
    - The **7T MCPL SRAM** includes an **additional transistor** compared to the **6T SRAM**. This extra transistor enhances the control over the internal nodes of the SRAM cell during read and write operations.
    - The 6T SRAM has a greater tendency for **bitline disturbances** during read operations, which can lead to instability. By adding an extra transistor, the 7T SRAM isolates the bitlines better from the stored data, improving stability.
 
