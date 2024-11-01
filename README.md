@@ -7,7 +7,7 @@
 **A Project Report on: 7T MCPL SRAM Cell**
 
 **Submitted By:**  
-Jjateen Gundesha (BT22ECI002)  
+[Jjateen Gundesha (BT22ECI002)](https://github.com/Jjateen)  
 
 **Under the Guidance of:**  
 Prof. Paritosh Peshwe  
