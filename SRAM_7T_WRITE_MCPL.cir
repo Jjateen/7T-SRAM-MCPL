@@ -1,0 +1,33 @@
+***7T MCPL SRAM WRITE MODE***
+.model nmod nmos level=54 version=4.7
+.model pmod pmos level=54 version=4.7
+
+.subckt inverter G Sp D
+M1 D G 0 0 nmod w=100u l=10u
+M2 D G Sp Sp pmod w=200u l=10u
+.model nmod nmos level=54 version=4.7
+.model pmod pmos level=54 version=4.7
+.ends
+
+Vdd 2 0 dc 5
+Vwl 6 0 dc 5
+Vwlb 9 0 dc 0
+Vbit 7 0 dc 5
+Vbitbar 8 0 dc 0
+Vs1 13 0 pulse(0 5 0 0 0 200m 400m)
+Vs2 11 0 pulse(0 5 0 0 0 100m 200m)
+
+Xq 1 10 3 inverter
+Xqbar 3 10 1 inverter
+
+M5 7 6 3 3 nmod w=100u l=10u
+M6 8 6 1 1 nmod w=100u l=10u
+M7 3 9 3 0 nmod w=100u l=10u
+M9 10 11 2 2 pmod w=200u l=10u
+M10 10 13 0 0 nmod w=100u l=10u
+.tran 0.1m 400m
+.control
+run
+plot v(7) v(8) v(3) v(1) v(13) v(11)
+.endc
+.end

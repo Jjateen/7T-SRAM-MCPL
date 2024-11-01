@@ -1,0 +1,29 @@
+***6T SRAM WRITE MODE***
+.model nmod nmos level=54 version=4.7
+.model pmod pmos level=54 version=4.7
+
+.subckt inverter 1 2 3
+M1 3 1 0 0 pmod w=100u l=10u
+M2 3 1 2 2 nmod w=100u l=10u
+.model nmod nmos level=54 version=4.7
+.model pmod pmos level=54 version=4.7
+.ends
+
+Vdd 2 0 dc 5
+Vwl 6 0 dc 5
+
+Vbit 7 0 pulse(0 5 0 0 0 100m 200m)
+Vbitbar 8 0 pulse(5 0 0 0 0 100m 200m)
+
+Xq 1 2 3 inverter
+Xqbar 3 2 1 inverter
+
+M5 7 6 3 3 pmod w=100u l=10u
+M6 8 6 1 1 pmod w=100u l=10u
+
+.tran 0.1m 400m
+.control
+run
+plot v(7) v(8) v(3) v(1)
+.endc
+.end
