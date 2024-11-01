@@ -1,7 +1,7 @@
 <div align="center">
 
 # CMOS Design Project: 7T MCPL SRAM Cell
-
+<img src="https://upload.wikimedia.org/wikipedia/en/f/f5/Indian_Institute_of_Information_Technology%2C_Nagpur_Logo.svg" width="13%" /> <br>
 ## Indian Institute of Information Technology, Nagpur  
 **ECL 312: CMOS Design**  
 **A Project Report on: 7T MCPL SRAM Cell**
