@@ -1,4 +1,4 @@
----
+<div align="center">
 
 # CMOS Design Project: 7T MCPL SRAM Cell
 
@@ -13,6 +13,8 @@ Jjateen Gundesha (BT22ECI002)
 Prof. Paritosh Peshwe  
 
 **Department of Electronics and Communication**  
+
+</div>
 
 ---
 
