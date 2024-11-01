@@ -114,11 +114,8 @@ plot v(7) v(8) v(3) v(1) v(13) v(11)
 ### 6T SRAM Waveforms
 ![6T SRAM Waveforms](SRAM_6T_WAVEFORMS.png)
 
-### 7T MCPL SRAM Waveforms (Write Mode)
-![7T MCPL SRAM Write Mode Waveforms](SRAM_7T_MCPL_WAVEFORMS_1.png)
-
-### 7T MCPL SRAM Waveforms (Read Mode)
-![7T MCPL SRAM Read Mode Waveforms](SRAM_7T_MCPL_WAVEFORMS_2.png)
+### 7T MCPL SRAM Waveforms
+![7T MCPL SRAM Write Mode Waveforms](SRAM_7T_MCPL_WAVEFORMS.png)
 
 ### 6T SRAM SNM
 <div align="center">
