@@ -164,8 +164,6 @@ Simulation results show a significant reduction in power and energy consumption 
 | SRAM Cell                        | Power (W)     | Energy (J)        | Power (W) (32nm) | Energy (J) (32nm) |
 |-----------------------------------|---------------|-------------------|------------------|-------------------|
 | **6T SRAM**                      | 85.6e-6       | 15.4e-9           | 4.6e-6           | 0.64e-12          |
-| **6T SRAM with MCPL**             | 26.9e-7       | 15.4e-15          | 2.34e-7          | 7.5e-15           |
-| **6T SRAM with Transmission gate**| 24.05e-9      | 9.36e-15          | 12.2e-9          | 3.4e-15           |
 | **7T SRAM**                      | 90.2e-6       | 6.32e-9           | 24.9e-6          | 13.4e-12          |
 | **7T SRAM with MCPL**             | 30.1e-7       | 117.9e-15         | 5.4e-7           | 40.5e-15          |
 
