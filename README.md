@@ -144,7 +144,7 @@ plot v(7) v(8) v(3) v(1) v(13) v(11)
 
 ### 6T SRAM SNM
 <div align="center">
-    <img src="SRAM_6T_SNM.png" alt="SNM of 6T SRAM"  width="77%">
+    <img src="SRAM_6T_SNM.png" alt="SNM of 6T SRAM"  width="100%">
 </div>
 
 ### 7T MCPL SRAM SNM
