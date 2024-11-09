@@ -1,0 +1,2 @@
+SOFTINCLUDE /home/buet/cadence/IC615/share/cdssetup/cds.lib
+DEFINE sramproj /home/buet/Desktop/sram/sramproj
