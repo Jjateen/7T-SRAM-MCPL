@@ -15,7 +15,6 @@ Prof. Paritosh Peshwe
 **Department of Electronics and Communication**  
 
 </div>
-
 ---
 
 ## Project Overview
