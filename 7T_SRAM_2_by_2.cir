@@ -1,0 +1,98 @@
+*** 7T MCPL SRAM 2x2 Array ***
+
+* NMOS and PMOS Models *
+.model nmod nmos level=54 version=4.7
+.model pmod pmos level=54 version=4.7
+
+* Inverter Subcircuit *
+.subckt inverter in out vdd
+M1 out in vdd vdd pmod w=200u l=10u
+M2 out in 0 0 nmod w=100u l=10u
+.ends inverter
+
+* Transmission Gate NAND Gate Subcircuit (for decoding) *
+.subckt transmission_gate_nand a0 a1 a1_bar out
+M1 out a1 a0 0 nmod w=100u l=10u
+M2 out a1_bar a0 0 pmod w=200u l=10u
+M3 out a1_bar 0 0 nmod w=100u l=10u
+M4 out a1 0 0 pmod w=200u l=10u
+.ends transmission_gate_nand
+
+* Sense Amplifier Subcircuit *
+.subckt sense_amp BL BL_bar OUT Vdd
+Msa1 OUT BL 0 0 nmod w=100u l=10u
+Msa2 OUT BL_bar Vdd Vdd pmod w=200u l=10u
+.ends sense_amp
+
+* Write Amplifier Subcircuit *
+.subckt write_amp DATA BL BL_bar Vdd
+Mw1 BL DATA 0 0 nmod w=100u l=10u
+Mw2 BL_bar DATA Vdd Vdd pmod w=200u l=10u
+.ends write_amp
+
+* 7T MCPL SRAM Cell (Corrected subcircuit reference) *
+.subckt sram_cell BL BL_bar WL WL_bar Vdd
+Xinv1 BL BL_bar Vdd inverter
+Xinv2 BL_bar BL Vdd inverter
+M5 BL WL 0 0 nmod w=100u l=10u
+M6 BL_bar WL 0 0 nmod w=100u l=10u
+M7 BL WL_bar BL 0 nmod w=100u l=10u
+.ends sram_cell
+
+* Row Decoder Subcircuit (Corrected node connections) *
+.subckt row_decoder a0 a1 a1_bar Vdd out
+Xnand a0 a1 a1_bar out transmission_gate_nand
+.ends row_decoder
+
+* Column Decoder Subcircuit (Corrected node connections) *
+.subckt col_decoder a0 a1 a1_bar Vdd out
+Xnand a0 a1 a1_bar out transmission_gate_nand
+.ends col_decoder
+
+* Main Circuit for 2x2 SRAM Array *
+
+Vdd 2 0 dc 5
+
+* Wordline and Bitline Drivers *
+VWL 6 0 dc 5
+VWL_bar 9 0 dc 0
+VBL 7 0 dc 5
+VBL_bar 8 0 dc 0
+
+* Row/Column Selection Pulses *
+Vs1 13 0 pulse(0 5 0 0 0 200m 400m)
+* Wordline select 1
+Vs2 11 0 pulse(0 5 0 0 0 100m 200m)
+* Wordline select 2
+Vc1 15 0 pulse(0 5 0 0 0 200m 400m)
+* Column select 1
+Vc2 17 0 pulse(0 5 0 0 0 100m 200m)
+* Column select 2
+
+* 2x2 SRAM Array (Corrected subcircuit connections) *
+Xsram1 7 8 6 9 2 sram_cell
+Xsram2 7 8 13 9 2 sram_cell
+Xsram3 7 8 6 17 2 sram_cell
+Xsram4 7 8 13 17 2 sram_cell
+
+* Row Decoder (Fixed parameter count) *
+Xrow_decoder_1 6 13 11 2 out1 row_decoder
+Xrow_decoder_2 6 17 11 2 out2 row_decoder
+
+* Column Decoder (Fixed parameter count) *
+Xcol_decoder_1 7 15 11 2 out3 col_decoder
+Xcol_decoder_2 8 17 11 2 out4 col_decoder
+
+* Sense Amplifier and Write Driver (Fixed node 10) *
+V10 10 0 dc 0
+* Grounding node 10 to fix floating issue
+Xsense_amp 7 8 OUT 2 sense_amp
+Xwrite_amp 10 7 8 2 write_amp
+
+* Simulation Commands *
+.tran 0.1m 400m
+.control
+run
+plot v(7) v(8) v(OUT) v(10)
+.endc
+.end
