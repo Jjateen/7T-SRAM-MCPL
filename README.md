@@ -40,7 +40,7 @@ The 6T SRAM cell is a conventional SRAM design, featuring two cross-coupled inve
 
 #### 6T SRAM Circuit
 <div align="center">
-    <img src="SRAM_6T_ckt.png" alt="6T SRAM Circuit Diagram">
+    <img src="./3_Simulation/Circuit/SRAM_6T_ckt.png" alt="6T SRAM Circuit Diagram">
 </div>
 
 ### 7T MCPL SRAM Cell
@@ -51,7 +51,7 @@ The 7T MCPL design employs **adiabatic logic** principles, specifically **Multi-
 
 #### 7T MCPL SRAM Circuit
 <div align="center">
-    <img src="SRAM_7T_MCPL_ckt.png" alt="7T MCPL SRAM Circuit Diagram">
+    <img src="./3_Simulation/Circuit/SRAM_7T_MCPL_ckt.png" alt="7T MCPL SRAM Circuit Diagram">
 </div>
 
 ### 2x2 7T SRAM Array with MCPL
@@ -164,7 +164,7 @@ module SRAM_tb();
 endmodule
 ```
 <div align="center">
-    <img src="testbench_waveform.png" alt="testbench_waveform">
+    <img src="./1_RTL/testbench_waveform.png" alt="testbench_waveform">
 </div>
 
 
@@ -346,36 +346,36 @@ plot v(7) v(8) v(OUT) v(10)
 
 ### 6T SRAM Layout
 <div align="center">
-    <img src="SRAM_6T_LAYOUT.png" alt="6T SRAM Layout">
+    <img src="./2_Layout/SRAM_6T_LAYOUT.png" alt="6T SRAM Layout">
 </div>
 
 ### 7T MCPL SRAM Layout
 <div align="center">
-    <img src="SRAM_7T_MCPL_LAYOUT.png" alt="7T MCPL SRAM Layout">
+    <img src="./2_Layout/SRAM_7T_MCPL_LAYOUT.png" alt="7T MCPL SRAM Layout">
 </div>
 
 ### 7T MCPL SRAM 2x 2 Array Layout
 <div align="center">
-    <img src="SRAM_7T_MCPL_2_by_2_layout.png" alt="7T MCPL SRAM 2x 2 Array Layout">
+    <img src="./2_Layout/SRAM_7T_MCPL_2_by_2_layout.png" alt="7T MCPL SRAM 2x 2 Array Layout">
 </div>
 
 ### 6T SRAM Waveforms
-![6T SRAM Waveforms](SRAM_6T_WAVEFORMS.png)
+![6T SRAM Waveforms](./3_Simulation/Waveforms/SRAM_6T_WAVEFORMS.png)
 
 ### 7T MCPL SRAM Waveforms
-![7T MCPL SRAM Write Mode Waveforms](SRAM_7T_MCPL_WAVEFORM.png)
+![7T MCPL SRAM Write Mode Waveforms](./3_Simulation/Waveforms/SRAM_7T_MCPL_WAVEFORM.png)
 
 ### 7T MCPL SRAM 2x2 Array Waveforms
-![7T MCPL SRAM 2x2 Array Waveforms( row = 1; column = 0](SRAM_7T_MCPL_2_by_2_WAVEFORM.png)
+![7T MCPL SRAM 2x2 Array Waveforms( row = 1; column = 0](./3_Simulation/Waveforms/SRAM_7T_MCPL_2_by_2_WAVEFORM.png)
 
 ### 6T SRAM SNM
 <div align="center">
-    <img src="SRAM_6T_SNM.png" alt="SNM of 6T SRAM" width="100%">
+    <img src="./3_Simulation/Waveforms/SRAM_6T_SNM.png" alt="SNM of 6T SRAM" width="100%">
 </div>
 
 ### 7T MCPL SRAM SNM
 <div align="center">
-    <img src="SRAM_7T_SNM.png" alt="SNM of 7T MCPL SRAM">
+    <img src="./3_Simulation/Waveforms/SRAM_7T_SNM.png" alt="SNM of 7T MCPL SRAM">
 </div>
 
 
