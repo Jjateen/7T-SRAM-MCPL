@@ -20,14 +20,19 @@ M4 out a1 0 0 pmod w=200u l=10u
 
 * Sense Amplifier Subcircuit *
 .subckt sense_amp BL BL_bar OUT Vdd
-Msa1 OUT BL 0 0 nmod w=100u l=10u
-Msa2 OUT BL_bar Vdd Vdd pmod w=200u l=10u
+M1 OUT BL 0 0 nmod w=100u l=10u
+M2 OUT BL_bar 0 0 pmod w=200u l=10u
+
+M3 OUT BL_bar Vdd Vdd pmod w=200u l=10u
+M3 OUT BL Vdd Vdd nmod w=100u l=10u
 .ends sense_amp
 
 * Write Amplifier Subcircuit *
 .subckt write_amp DATA BL BL_bar Vdd
 Mw1 BL DATA 0 0 nmod w=100u l=10u
 Mw2 BL_bar DATA Vdd Vdd pmod w=200u l=10u
+Mw3 BL DATA 0 0 pmod w=200u l=10u
+Mw4 BL_bar DATA Vdd Vdd nmod w=100u l=10u
 .ends write_amp
 
 * 7T MCPL SRAM Cell (Corrected subcircuit reference) *
@@ -51,22 +56,21 @@ Xnand a0 a1 a1_bar out transmission_gate_nand
 
 * Main Circuit for 2x2 SRAM Array *
 
-Vdd 2 0 dc 5
-
+Vdd 2 0 dc 2
 * Wordline and Bitline Drivers *
-VWL 6 0 dc 5
+VWL 6 0 dc 2
 VWL_bar 9 0 dc 0
-VBL 7 0 dc 5
-VBL_bar 8 0 dc 0
-
+VBL 7 0 pulse(0 2 0 0 0 50m 100m)
+VBL_bar 8 0 pulse(2 0 0 0 0 50m 100m)
+Vamp 19 0 dc 5v
 * Row/Column Selection Pulses *
-Vs1 13 0 pulse(0 5 0 0 0 200m 400m)
+Vs1 13 0 dc 2
 * Wordline select 1
-Vs2 11 0 pulse(0 5 0 0 0 100m 200m)
+Vs2 11 0 dc 0
 * Wordline select 2
-Vc1 15 0 pulse(0 5 0 0 0 200m 400m)
+Vc1 15 0 pulse(0 2 0 0 0 200m 400m)
 * Column select 1
-Vc2 17 0 pulse(0 5 0 0 0 100m 200m)
+Vc2 17 0 pulse(0 2 0 0 0 100m 200m)
 * Column select 2
 
 * 2x2 SRAM Array (Corrected subcircuit connections) *
@@ -86,13 +90,14 @@ Xcol_decoder_2 8 17 11 2 out4 col_decoder
 * Sense Amplifier and Write Driver (Fixed node 10) *
 V10 10 0 dc 0
 * Grounding node 10 to fix floating issue
-Xsense_amp 7 8 OUT 2 sense_amp
+Xsense_amp 7 8 18 19 sense_amp
 Xwrite_amp 10 7 8 2 write_amp
+
 
 * Simulation Commands *
 .tran 0.1m 400m
 .control
 run
-plot v(7) v(8) v(OUT) v(10)
+plot v(7) v(8) v(18) v(10)
 .endc
 .end
